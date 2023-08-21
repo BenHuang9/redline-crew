@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300&family=Montserrat:wght@300&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+body {
+  margin: 0;
+  font-family: "Jura", arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   color: white;
+  background-color: rgb(39, 39, 39);
+  font-weight: bold;
+  line-height: 1.5;
 }
 
-.App-link {
-  color: #61dafb;
+p{
+  font-family: 'Montserrat', sans-serif;
 }
 
-@keyframes App-logo-spin {
+
+#homeBanner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 180%;
+  /* Adjust this between 150% and 200% */
+  min-height: 180%;
+  /* Adjust this between 150% and 200% */
+  width: auto;
+  height: auto;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  filter: brightness(0.7);
+}
+
+.textWrapper h2 {
+  animation: revealText 1s;
+}
+
+@keyframes revealText {
   from {
-    transform: rotate(0deg);
+      clip-path: inset(0 100% 0 0 round 0%);
   }
+
   to {
-    transform: rotate(360deg);
+      clip-path: inset(0 0 0 0 round 0%);
+  }
+}
+#wheel {
+  -webkit-animation: moveLineDown 1s ease-out;
+  animation: moveLineDown 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@keyframes moveLineDown {
+  0% {
+      transform: translateY(-5px);
+      opacity: 0;
+  }
+
+  50% {
+      opacity: 1;
+  }
+
+  100% {
+      transform: translateY(15px);
+      opacity: 0;
   }
 }
