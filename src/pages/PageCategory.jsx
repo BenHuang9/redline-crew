@@ -1,29 +1,39 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useParams, NavLink } from 'react-router-dom'
 import Loader from '../components/Loader';
 import Pagination from '@mui/material/Pagination';
 
-function PageBlog() {
-    const [loading, setLoading] = useState(true)
-    const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed";
+function PageCategory() {
+    const params = useParams()
     const [restData, setRestData] = useState([]);
+    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/categories?slug=${params.categoryName}`
+    const [categoryName, setCategoryName] = useState("")
     const blogsPerPage = 3; // Number of blogs to show per page
     const [currentPage, setCurrentPage] = useState(1);
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await fetch(restPath);
+                const categoryResponse = await fetch(restPath);
+                const categoryData = await categoryResponse.json();
+
+                const blogId = categoryData[0].id;
+
+                // // Use Brand ID in Car Query
+                const response = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?categories=${blogId}&_embed`);
                 const data = await response.json();
 
                 setRestData(data); // Update state with car data
-                setLoading(false);
+                setCategoryName(categoryData)
+                setLoading(false)
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
+
         fetchData();
-    }, [restPath]);
+    }, [restPath]); // Use params.brandName as a dependency
 
     if (loading) {
         return <Loader />;
@@ -44,7 +54,7 @@ function PageBlog() {
     return (
         <>
             <div className="max-w-[1440px] m-auto">
-                <h2 className="text-5xl pt-5 pb-10">BLOGS STATION</h2>
+                <h2 className="text-5xl pt-5 pb-10">Category: {categoryName[0].name}</h2>
 
                 {currentBlogs.map((blog) => (
                     <article key={blog.id} className="flex flex-row-reverse gap-10 mb-10">
@@ -85,7 +95,7 @@ function PageBlog() {
                 </div>
             </div>
         </>
-    );
+    )
 }
 
-export default PageBlog;
+export default PageCategory

@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
+import Loader from '../components/Loader';
 
-function Brand({ featuredImage }) {
+function Brand() {
     const [carData, setCarData] = useState([]);
+    const [brandName, setBrandName] =useState([])
+    const [loading, setLoading] = useState(true);
     const params = useParams();
+    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/brand?slug=${params.brandName}`
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const brandResponse = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/brand?slug=${params.brandName}`);
+                const brandResponse = await fetch(restPath);
                 const brandData = await brandResponse.json();
 
-                if (brandData.length === 0) {
-                    console.log("Brand not found.");
-                    return;
-                }
-
+                setBrandName(brandData)
                 const brandId = brandData[0].id;
 
                 // Use Brand ID in Car Query
@@ -23,21 +23,26 @@ function Brand({ featuredImage }) {
                 const carData = await carResponse.json();
 
                 setCarData(carData); // Update state with car data
+                setLoading(false)
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
         fetchData();
-    }, [params.brandName]); // Use params.brandName as a dependency
+    }, [restPath]); // Use params.brandName as a dependency
 
-    console.log(carData);
+
+    if(loading){
+        return <Loader />
+    }
 
     return (
+        <>
         <div className="flex gap-5">
             {carData.map((car) => (
                 <div key={car.id} id={`post-${car.id}`}>
-                    <NavLink to="/profile" >
+                    <NavLink to={`/brand/${brandName[0].slug}/${car.slug}`} >
                     {car._embedded['wp:featuredmedia'][0] && (
                         <figure className="featured-image">
                             <img
@@ -54,6 +59,7 @@ function Brand({ featuredImage }) {
                 </div>
             ))}
         </div>
+        </>
     );
 }
 

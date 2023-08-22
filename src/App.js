@@ -4,6 +4,12 @@ import PageHome from './pages/PageHome';
 import Header from './components/Header';
 import PageBrand from './pages/PageBrand';
 import PageBlog from './pages/PageBlog';
+import Loader from './components/Loader';
+import PageSingleBlog from './pages/PageSingleBlog';
+import PageCategory from './pages/PageCategory';
+import PageSingleCar from './pages/PageSingleCar';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 function App() {
   const featuredImage = (featuredImageObject) => {
@@ -24,12 +30,16 @@ function App() {
   return (
     <BrowserRouter>
       <div className='wrapper'>
-        {/* <Header /> */}
+        <Header />
         <main>
           <Routes>
             <Route path='/' element={<PageHome />} />
+            <Route path='/123' element={<Loader />} />
             <Route path="/brand/:brandName" element={<PageBrand featuredImage={featuredImage} />} />
             <Route path='/blog' element={<PageBlog />} />
+            <Route path='/blog/:blogName' element={<PageSingleBlog featuredImage={featuredImage} />} />
+            <Route path='/category/:categoryName' element={<PageCategory featuredImage={featuredImage} />} />
+            <Route path='/brand/:brandName/:carName' element={<PageSingleCar featuredImage={featuredImage} />} />
           </Routes>
         </main>
 
