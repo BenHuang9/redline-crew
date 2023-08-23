@@ -9,6 +9,11 @@ function PageSingleBlog() {
     const params = useParams();
     const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?slug=${params.blogName}&_embed`
 
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
     useEffect(() => {
         async function fetchData() {
             try {
@@ -38,7 +43,7 @@ console.log(restData)
     const blogContent = restData.acf.content.replace(/\r\n/g, '<br />');
     return (
         <>
-            <div className="max-w-[1440px] m-auto lg:flex relative px-10 mt-10">
+            <div className="max-w-[1440px] m-auto lg:flex relative px-10 mt-24">
                 <div className='blog-content basis-3/5'>
                     <h2 className="text-5xl pt-5 pb-10">{restData.title.rendered}</h2>
                     {restData._embedded['wp:featuredmedia'][0] && (

@@ -53,7 +53,7 @@ function PageCategory() {
 
     return (
         <>
-            <div className="max-w-[1440px] m-auto px-10 mt-10">
+            <div className="max-w-[1440px] m-auto px-10 mt-24">
                 <h2 className="text-5xl pt-5 pb-10">Category: {categoryName[0].name}</h2>
 
                 {currentBlogs.map((blog) => (

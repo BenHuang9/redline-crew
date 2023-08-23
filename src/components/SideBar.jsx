@@ -50,7 +50,7 @@ function SideBar() {
                 <ul>
                     {latestData.slice(0, 5).map(news => (
                         <li key={news.id} className='text-xl'>
-                            <NavLink to={`/blog/${news.slug}`}>
+                            <NavLink to={`/blog/${news.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                 {news.title.rendered}
                             </NavLink>
                         </li>
