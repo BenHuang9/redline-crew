@@ -6,7 +6,7 @@ import Pagination from '@mui/material/Pagination';
 function PageCategory() {
     const params = useParams()
     const [restData, setRestData] = useState([]);
-    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/categories?slug=${params.categoryName}`
+    const restPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/categories?slug=${params.categoryName}`
     const [categoryName, setCategoryName] = useState("")
     const blogsPerPage = 3; // Number of blogs to show per page
     const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +21,7 @@ function PageCategory() {
                 const blogId = categoryData[0].id;
 
                 // // Use Brand ID in Car Query
-                const response = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?categories=${blogId}&_embed`);
+                const response = await fetch(`https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts?categories=${blogId}&_embed`);
                 const data = await response.json();
 
                 setRestData(data); // Update state with car data

@@ -7,7 +7,7 @@ function PageSingleBlog() {
     const [restData, setRestData] = useState([]);
     const [loading, setLoading] = useState(true);
     const params = useParams();
-    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?slug=${params.blogName}&_embed`
+    const restPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts?slug=${params.blogName}&_embed`
 
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function PageSingleBlog() {
                 const blogId = blogData[0].id;
 
                 // Use Brand ID in Car Query instead of using array
-                const Response = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts/${blogId}?_embed`);
+                const Response = await fetch(`https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts/${blogId}?_embed`);
                 const data = await Response.json();
                 setRestData(data); // Update state with car data
                 setLoading(false)

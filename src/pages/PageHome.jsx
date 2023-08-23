@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import RelatedBlog from '../components/RelatedBlog';
 
 function PageHome() {
-  const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/pages/11?acf_format=standard&_embed";
+  const restPath = "https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/pages/11?acf_format=standard&_embed";
   const [restData, setRestData] = useState([]);
 
 

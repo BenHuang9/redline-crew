@@ -10,7 +10,7 @@ function Brand() {
     const [brandName, setBrandName] = useState([])
     const [loading, setLoading] = useState(true);
     const params = useParams();
-    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/brand?slug=${params.brandName}`
+    const restPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/brand?slug=${params.brandName}`
     const [shouldShowSwiper, setShouldShowSwiper] = useState(false);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function Brand() {
                 const brandId = brandData[0].id;
 
                 // Use Brand ID in Car Query
-                const carResponse = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/car?brand=${brandId}&_embed`);
+                const carResponse = await fetch(`https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/car?brand=${brandId}&_embed`);
                 const carData = await carResponse.json();
 
                 setCarData(carData); // Update state with car data

@@ -6,9 +6,9 @@ function SideBar() {
     const [categoryData, setCategoryData] = useState([]);
     const [latestData, setLatestData] = useState([]);
     //get post category
-    const categoryPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/categories`
+    const categoryPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/categories`
     //get all posts
-    const latestPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts`
+    const latestPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts`
 
 
     useEffect(() => {

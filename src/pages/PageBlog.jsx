@@ -5,7 +5,7 @@ import Pagination from '@mui/material/Pagination';
 
 function PageBlog() {
     const [loading, setLoading] = useState(true)
-    const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed";
+    const restPath = "https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts?_embed";
     const [restData, setRestData] = useState([]);
     const blogsPerPage = 3; // Number of blogs to show per page
     const [currentPage, setCurrentPage] = useState(1);

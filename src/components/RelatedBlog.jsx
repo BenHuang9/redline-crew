@@ -14,19 +14,19 @@ function RelatedBlog() {
         async function fetchData() {
             try {
                 if (params.brandName) {
-                    const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/categories?slug=${params.brandName}`
+                    const restPath = `https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/categories?slug=${params.brandName}`
                     const categoryResponse = await fetch(restPath);
                     const categoryData = await categoryResponse.json();
 
                     const blogId = categoryData[0].id;
 
                     // // Use Brand ID in Car Query
-                    const response = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?categories=${blogId}&_embed`);
+                    const response = await fetch(`https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts?categories=${blogId}&_embed`);
                     const data = await response.json();
 
                     setRestData(data);
                 } else {
-                    const restPath = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed`)
+                    const restPath = await fetch(`https://bhuang.ca/redlineCrew-wordpress/redlineCrew/wp-json/wp/v2/posts?_embed`)
                     const data = await restPath.json();
 
                     setRestData(data);

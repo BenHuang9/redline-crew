@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Loader from '../components/Loader';
 
 function Header() {
-  const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/media/456";
+  const restPath = "https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/media/456";
   const [restData, setRestData] = useState([]);
   const [loading, setLoading] = useState(true)
   useEffect(() => {
