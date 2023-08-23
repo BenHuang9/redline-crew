@@ -1,13 +1,14 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import RelatedBlog from '../components/RelatedBlog';
+import Loader from '../components/Loader';
 
 function PageHome() {
   const [loading, setLoading] = useState(true)
-  const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed";
+  const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/pages/11?acf_format=standard&_embed";
   const [restData, setRestData] = useState([]);
 
-  
+
   let HomeBanner;
   const videoId1 = '5GrxYha5Vwo';
 
@@ -68,6 +69,22 @@ function PageHome() {
     }
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(restPath);
+        const data = await response.json();
+
+        setRestData(data); // Update state with car data
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, [restPath]);
+
+
   return (
     <>
       <section className="videoWrapper relative w-full h-[40vh] overflow-hidden min-[500px]:h-[60vh] min-[800px]:h-[100vh]">
@@ -79,7 +96,7 @@ function PageHome() {
           <h2 className='text-[9vw] m-0 min-[500px]:text-[7vw] min-[800px]:text-[5vw]'>REDLINE CREW</h2>
           <p className='text-[3vw] m-0 min-[800px]:text-[2vw]'>Sleek Speed <br />Unleash the Power</p>
         </div>
-        <div className="scroll-invitation hidden min-[800px]:block absolute bottom-0 left-[50%] -translate-x-[50%] fill-white mx-auto mb-[25px]">
+        <div className="scroll-invitation hidden min-[800px]:block absolute bottom-10 left-[50%] -translate-x-[50%] fill-white mx-auto mb-[25px]">
           <svg className="scroll-invitation__svg block m-auto pb-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 42" width="24px"
             height="42px">
             <path
@@ -90,19 +107,30 @@ function PageHome() {
           <p>Scroll Down</p>
         </div>
       </section>
-      <div className="max-w-[1440px] px-10 pt-10 m-auto relative">
-        <section className="flex flex-col gap-5 text-3xl">
+      <div className="max-w-[1440px] px-10 m-auto relative">
+
+        <section className="flex flex-col gap-5 text-3xl py-32">
           <NavLink to="/brand/porsche">Porsche</NavLink>
           <NavLink to="/brand/lamborghini">Lamborghini</NavLink>
           <NavLink to="/brand/ferrari">Ferrari</NavLink>
           <NavLink to="/brand/mclaren">Mclaren</NavLink>
         </section>
-
+        {restData.acf &&
+          <section className=" py-32">
+            <h2 className='text-3xl mb-5'>About Us</h2>
+            <div className='flex'>
+              <p className='flex-1'>{restData.acf.about}</p>
+              <div className='flex-1'>
+                <img src={restData.acf.about_image} alt="about us" />
+              </div>
+            </div>
+          </section>
+        }
         <section className=" py-32">
           <h2 className='text-3xl mb-5'>Latest News</h2>
           <RelatedBlog />
         </section>
-      </div>
+      </div >
 
     </>
   );

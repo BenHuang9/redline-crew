@@ -38,7 +38,7 @@ function RelatedModel() {
     }
     return (
         <>
-            <div className="flex gap-5">
+            <div className="md:flex gap-5">
                 {carData
                     .filter((car) => car.slug !== params.carName) // Filter cars by slug condition
                     .map((car) => (
@@ -49,7 +49,7 @@ function RelatedModel() {
                                         <img
                                             src={car._embedded['wp:featuredmedia'][0].source_url}
                                             alt={car._embedded['wp:featuredmedia'][0].alt_text}
-                                            width={car._embedded['wp:featuredmedia'][0].media_details.sizes.full.width}
+                                            width={600}
                                             height={car._embedded['wp:featuredmedia'][0].media_details.sizes.full.height}
                                         />
                                     </figure>
