@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom'
-import OwlCarousel from 'react-owl-carousel';
 import Loader from './Loader';
+import { Navigation, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 function RelatedBlog() {
     const params = useParams()
@@ -68,11 +69,28 @@ function RelatedBlog() {
     return (
         <>
             {restData && (
-                <OwlCarousel
-                    className="owl-theme"
-                    {...options}>
+                <Swiper
+                    // install Swiper modules
+                    modules={[Navigation]}
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    navigation
+                    breakpoints={{
+                        320: {
+                          slidesPerView: 1,
+                        },
+                        650: {
+                          slidesPerView: 2,
+                        },
+                        1024: {
+                          slidesPerView: 3,
+                        },
+                      }}
+
+                >
+                   
                     {restData.map((blog) => (
-                        <article key={blog.id} className="gap-10 mb-10">
+                        <SwiperSlide key={blog.id}>
                             <NavLink to={`/blog/${blog.slug}`} className="featured-image flex-1 overflow-hidden">
                                 {blog._embedded['wp:featuredmedia'][0] && (
                                     <figure className='overflow-hidden'>
@@ -84,7 +102,7 @@ function RelatedBlog() {
                                     </figure>
                                 )}
                             </NavLink>
-                            <div className="flex-1 flex flex-col justify-between h-[400px]">
+                            <div className="flex-1 flex flex-col justify-between h-full md:h-[450px]">
                                 <div className='flex justify-between flex-col '>
                                     <h2 className="text-3xl mb-8 md:h-[125px]">{blog.title.rendered}</h2>
                                     <div className="entry-content" dangerouslySetInnerHTML={{ __html: blog.excerpt.rendered }} />
@@ -96,9 +114,40 @@ function RelatedBlog() {
                                     </NavLink>
                                 </button>
                             </div>
-                        </article>
+                        </SwiperSlide>
                     ))}
-                </OwlCarousel>
+                </Swiper>
+                // <OwlCarousel
+                //     className="owl-theme"
+                //     {...options}>
+                //     {restData.map((blog) => (
+                //         <article key={blog.id} className="gap-10 mb-10">
+                //             <NavLink to={`/blog/${blog.slug}`} className="featured-image flex-1 overflow-hidden">
+                //                 {blog._embedded['wp:featuredmedia'][0] && (
+                //                     <figure className='overflow-hidden'>
+                //                         <img
+                //                             src={blog._embedded['wp:featuredmedia'][0].source_url}
+                //                             alt={blog._embedded['wp:featuredmedia'][0].alt_text}
+                //                             className='hover:scale-110 transition duration-200 ease-in-out w-full h-[300px] object-cover'
+                //                         />
+                //                     </figure>
+                //                 )}
+                //             </NavLink>
+                //             <div className="flex-1 flex flex-col justify-between h-[400px]">
+                //                 <div className='flex justify-between flex-col '>
+                //                     <h2 className="text-3xl mb-8 md:h-[125px]">{blog.title.rendered}</h2>
+                //                     <div className="entry-content" dangerouslySetInnerHTML={{ __html: blog.excerpt.rendered }} />
+                //                 </div>
+
+                //                 <button className="text-right text-2xl">
+                //                     <NavLink to={`/blog/${blog.slug}`}>
+                //                         Read More
+                //                     </NavLink>
+                //                 </button>
+                //             </div>
+                //         </article>
+                //     ))}
+                // </OwlCarousel>
             )}
         </>
     )

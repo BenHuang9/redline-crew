@@ -9,7 +9,6 @@ function RelatedModel() {
     const params = useParams();
     const restPath = `http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/brand?slug=${params.brandName}`
 
-    console.log(params)
     useEffect(() => {
         async function fetchData() {
             try {
@@ -33,7 +32,6 @@ function RelatedModel() {
         fetchData();
     }, [restPath]); // Use params.brandName as a dependency
 
-    console.log(carData)
 
     if (loading) {
         return <Loader />
@@ -45,7 +43,7 @@ function RelatedModel() {
                     .filter((car) => car.slug !== params.carName) // Filter cars by slug condition
                     .map((car) => (
                         <div key={car.id} id={`post-${car.id}`}>
-                            <NavLink to={`/brand/${brandName[0].slug}/${car.slug}`}>
+                            <NavLink to={`/brand/${brandName[0].slug}/${car.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                 {car._embedded['wp:featuredmedia'][0] && (
                                     <figure className="featured-image">
                                         <img

@@ -8,8 +8,9 @@ import Loader from './components/Loader';
 import PageSingleBlog from './pages/PageSingleBlog';
 import PageCategory from './pages/PageCategory';
 import PageSingleCar from './pages/PageSingleCar';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Footer from './components/Footer';
+import 'swiper/css';
+import 'swiper/css/bundle'
 
 function App() {
   const featuredImage = (featuredImageObject) => {
@@ -42,7 +43,7 @@ function App() {
             <Route path='/brand/:brandName/:carName' element={<PageSingleCar featuredImage={featuredImage} />} />
           </Routes>
         </main>
-
+        <Footer />
       </div>
     </BrowserRouter>
 
