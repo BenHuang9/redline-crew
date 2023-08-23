@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import RelatedBlog from '../components/RelatedBlog';
-import Loader from '../components/Loader';
 
 function PageHome() {
-  const [loading, setLoading] = useState(true)
   const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/pages/11?acf_format=standard&_embed";
   const [restData, setRestData] = useState([]);
 
@@ -76,7 +74,6 @@ function PageHome() {
         const data = await response.json();
 
         setRestData(data); // Update state with car data
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
