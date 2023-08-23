@@ -109,16 +109,19 @@ function PageHome() {
       </section>
       <div className="max-w-[1440px] px-10 m-auto relative">
 
-        <section className="flex flex-col gap-5 text-3xl py-32">
-          <NavLink to="/brand/porsche">Porsche</NavLink>
-          <NavLink to="/brand/lamborghini">Lamborghini</NavLink>
-          <NavLink to="/brand/ferrari">Ferrari</NavLink>
-          <NavLink to="/brand/mclaren">Mclaren</NavLink>
+        <section className="py-16">
+          <h2 className='text-3xl mb-5'>Brand</h2>
+          <div className='flex flex-col md:flex-row flex-wrap justify-around'>
+          <NavLink to="/brand/porsche" className='text-xl mb-5'>Porsche</NavLink>
+          <NavLink to="/brand/lamborghini" className='text-xl mb-5'>Lamborghini</NavLink>
+          <NavLink to="/brand/ferrari" className='text-xl mb-5'>Ferrari</NavLink>
+          <NavLink to="/brand/mclaren" className='text-xl mb-5' >Mclaren</NavLink>
+          </div>
         </section>
         {restData.acf &&
-          <section className=" py-32">
+          <section className=" py-16">
             <h2 className='text-3xl mb-5'>About Us</h2>
-            <div className='flex'>
+            <div className='flex flex-col lg:flex-row gap-5'>
               <p className='flex-1'>{restData.acf.about}</p>
               <div className='flex-1'>
                 <img src={restData.acf.about_image} alt="about us" />
@@ -126,7 +129,7 @@ function PageHome() {
             </div>
           </section>
         }
-        <section className=" py-32">
+        <section className=" py-16">
           <h2 className='text-3xl mb-5'>Latest News</h2>
           <RelatedBlog />
         </section>
