@@ -26,7 +26,6 @@ function RelatedBlog() {
 
                     setRestData(data);
                 } else {
-                    console.log('no')
                     const restPath = await fetch(`http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed`)
                     const data = await restPath.json();
 
@@ -41,26 +40,6 @@ function RelatedBlog() {
 
         fetchData();
     }, [params.brandName]);
-
-    const options = {
-        margin: 25,
-        // responsiveClass: true,
-        dots: true,
-        autoplay: true,
-        smartSpeed: 1000,
-        responsive: {
-            320: {
-                items: 1,
-            },
-            650: {
-                items: 2,
-            },
-            1024: {
-                items: 3,
-            }
-        },
-    };
-
 
     if (loading) {
         return <Loader />

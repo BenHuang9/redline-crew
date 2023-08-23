@@ -6,7 +6,7 @@ import { GiCancel } from 'react-icons/gi'
 import { MdKeyboardDoubleArrowRight } from 'react-icons/md'
 import CountUp from 'react-countup'
 import RelatedBlog from '../components/RelatedBlog';
-import { Navigation, Pagination} from 'swiper/modules';
+import { Navigation, Pagination, Autoplay} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import RelatedModel from '../components/RelatedModel';
 
@@ -359,10 +359,14 @@ function PageSingleCar() {
                             </div>
                             <Swiper
                                 // install Swiper modules
-                                modules={[Navigation, Pagination,]}
+                                modules={[Navigation, Pagination, Autoplay]}
                                 slidesPerView={1}
                                 navigation
                                 pagination={{ clickable: true }}
+                                autoplay={{
+                                    delay: 2500,
+                                    disableOnInteraction: false,
+                                  }}
                             >
                                 <SwiperSlide><img src={restData.acf.gallery.slider_one} alt="gallery" className='h-[30vh] md:h-[60vh] w-full object-cover object-center' /></SwiperSlide>
                                 <SwiperSlide><img src={restData.acf.gallery.slider_two} alt="gallery" className='h-[30vh] md:h-[60vh] w-full object-cover object-center' /></SwiperSlide>
