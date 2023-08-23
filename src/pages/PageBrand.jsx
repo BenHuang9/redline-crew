@@ -61,10 +61,11 @@ function Brand() {
     console.log(brandName)
     return (
         <>
-            <div className='relative h-[95vh] md:flex items-center brandBanner bg-radial-gradient'>
-                {shouldShowSwiper ? (
-                    <>
-                        <h2 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-64 lg:pb-96 text-[15vw]'>{brandName[0].name}</h2>
+
+            {shouldShowSwiper ? (
+                <>
+                    <div className='relative h-[95vh] md:flex items-center brandBanner bg-radial-gradient'>
+                        <h2 className='select-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-64 lg:pb-96 text-[15vw]'>{brandName[0].name}</h2>
                         <Swiper
                             effect={'coverflow'}
                             centeredSlides={true}
@@ -100,10 +101,13 @@ function Brand() {
 
                             ))}
                         </Swiper>
-                    </>
-                ) : (
-                    <>
-                        <h2 className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-64 lg:pb-96 text-[15vw]'>{brandName[0].name}</h2>
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className='relative h-[95vh] md:flex items-center brandBanner bg-radial-gradient pt-24 pb-10 px-10'>
+                        <h2 className='text-[15vw]'>{brandName[0].name}</h2>
+                        <div className='flex flex-col gap-10 pt-20'>
                             {carData.map((car) => (
                                 <article key={car.id} id={`post-${car.id}`} >
                                     <NavLink to={`/brand/${brandName[0]?.slug}/${car.slug}`} className="relative">
@@ -112,17 +116,21 @@ function Brand() {
                                                 <img
                                                     src={car._embedded['wp:featuredmedia'][0].source_url}
                                                     alt={car._embedded['wp:featuredmedia'][0].alt_text}
-                                                    className='m-auto w-[60%]'
+                                                    className='m-auto'
                                                 />
                                             </figure>
                                         )}
-                                        <h2 className='absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3vw]'>{car.acf.model_name}</h2>
+                                        <h2 className='absolute bottom-0 left-1 text-[6vw]'>{car.acf.model_name}</h2>
                                     </NavLink>
                                 </article>
                             ))}
-                    </>
-                )}
-            </div>
+                        </div>
+
+                    </div>
+                </>
+            )
+            }
+
         </>
     );
 }
