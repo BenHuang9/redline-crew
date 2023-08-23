@@ -53,11 +53,11 @@ function PageCategory() {
 
     return (
         <>
-            <div className="max-w-[1440px] m-auto">
+            <div className="max-w-[1440px] m-auto px-10 mt-10">
                 <h2 className="text-5xl pt-5 pb-10">Category: {categoryName[0].name}</h2>
 
                 {currentBlogs.map((blog) => (
-                    <article key={blog.id} className="flex flex-row-reverse gap-10 mb-10">
+                    <article key={blog.id} className="lg:flex flex-row-reverse gap-10 mb-10">
                         <NavLink to={`/blog/${blog.slug}`} className="featured-image flex-1 overflow-hidden ">
                             {blog._embedded['wp:featuredmedia'][0] && (
                                 <figure className='hover:scale-110 transition duration-200 ease-in-out'>

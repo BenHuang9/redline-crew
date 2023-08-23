@@ -38,7 +38,7 @@ console.log(restData)
     const blogContent = restData.acf.content.replace(/\r\n/g, '<br />');
     return (
         <>
-            <div className="max-w-[1440px] px-10 m-auto lg:flex relative">
+            <div className="max-w-[1440px] m-auto lg:flex relative px-10 mt-10">
                 <div className='blog-content basis-3/5'>
                     <h2 className="text-5xl pt-5 pb-10">{restData.title.rendered}</h2>
                     {restData._embedded['wp:featuredmedia'][0] && (

@@ -2,9 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300&family=Montserrat:wght@300&display=swap');
-html{
+
+@layer components {
+  .bg-radial-gradient {
+    background: radial-gradient(at 50% 54%, #9fa2a9, #212325);
+  }
+}
+
+html {
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   font-family: "Jura", arial, sans-serif;
@@ -40,9 +48,7 @@ h3 {
   top: 50%;
   left: 50%;
   min-width: 180%;
-  /* Adjust this between 150% and 200% */
   min-height: 180%;
-  /* Adjust this between 150% and 200% */
   width: auto;
   height: auto;
   -webkit-transform: translate(-50%, -50%);
@@ -110,6 +116,7 @@ h3 {
   padding-top: clamp(80px, calc(5px + 9.375vw), 245px);
   padding-bottom: clamp(100px, calc(-25px + 15.625vw), 100px)
 }
+
 .text-container {
   grid-row: 2/3;
   grid-column: 1/13;
@@ -196,4 +203,21 @@ h3 {
   .image-container {
     grid-column: 6/13;
   }
+}
+
+/* brand page */
+.swiper-3d .swiper-slide,
+.swiper-3d .swiper-cube-shadow {
+  width: 70%;
+  margin: 0 200px;
+}
+
+.brandBanner::before{
+  position: absolute;
+    content: "";
+    width: 100%;
+    height: 532px;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #161a21 100%);
 }

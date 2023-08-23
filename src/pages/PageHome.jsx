@@ -1,10 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import RelatedBlog from '../components/RelatedBlog';
 
 function PageHome() {
+  const [loading, setLoading] = useState(true)
+  const restPath = "http://localhost:8888/wordpress/redlineCrew/wp-json/wp/v2/posts?_embed";
+  const [restData, setRestData] = useState([]);
 
-
+  
   let HomeBanner;
   const videoId1 = '5GrxYha5Vwo';
 
@@ -95,7 +98,8 @@ function PageHome() {
           <NavLink to="/brand/mclaren">Mclaren</NavLink>
         </section>
 
-        <section>
+        <section className=" py-32">
+          <h2 className='text-3xl mb-5'>Latest News</h2>
           <RelatedBlog />
         </section>
       </div>

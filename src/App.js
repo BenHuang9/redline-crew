@@ -11,6 +11,7 @@ import PageSingleCar from './pages/PageSingleCar';
 import Footer from './components/Footer';
 import 'swiper/css';
 import 'swiper/css/bundle'
+import 'swiper/css/effect-coverflow';
 
 function App() {
   const featuredImage = (featuredImageObject) => {
