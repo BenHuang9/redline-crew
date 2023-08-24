@@ -97,11 +97,11 @@ h3 {
 
 /* blog */
 
-.pagination-button-container li .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+.pagination-button-container li .MuiButtonBase-root {
   color: white;
 }
 
-.pagination-button-container li .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+.pagination-button-container li .css-1xr9krm.Mui-selected {
   background-color: rgba(0, 0, 0, 0.50);
   ;
   color: #fac666;
