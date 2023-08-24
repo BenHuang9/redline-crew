@@ -105,7 +105,7 @@ function Brand() {
                 </>
             ) : (
                 <>
-                    <div className='relative h-[95vh] md:flex items-center brandBanner bg-radial-gradient pt-24 pb-10 px-10'>
+                    <div className='relative md:flex items-center brandBanner bg-radial-gradient pt-24 pb-10 px-10'>
                         <h2 className='text-[13vw] pt-5'>{brandName[0].name}</h2>
                         <div className='flex flex-col gap-10 pt-14'>
                             {carData.map((car) => (
