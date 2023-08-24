@@ -128,7 +128,7 @@ function PageSingleCar() {
                 <div className='max-w-[1440px] m-auto px-5'>
 
                     {/* Car Design Begin */}
-                    <section id="design" className="pt-[64px] " >
+                    <section id="design" className="md:pt-[64px] " >
 
                         <div className="section-title flex items-center text-md text-[#da291c] mx-2 py-8">
                             <span>1</span>
@@ -194,7 +194,7 @@ function PageSingleCar() {
                     </section>
 
                     {/* Car Specification begin */}
-                    <section id="spec" className='pt-[64px] mb-16'>
+                    <section id="spec" className='md:pt-[64px]'>
                         <div className="section-title flex items-center text-md text-[#da291c] mx-2 py-8">
                             <span>2</span>
                             <span className='flex item-center max-w-[100px] min-w-[10px] m-3 w-[70%] h-[1px]'>
@@ -358,7 +358,7 @@ function PageSingleCar() {
                     </section>
                     {/* Car specification end */}
 
-                    <section id="gallery" className='pt-[64px] mb-16'>
+                    <section id="gallery" className='md:pt-[64px] mb-16'>
                         <div className="section-title flex items-center text-md text-[#da291c] mx-2 py-8">
                             <span>3</span>
                             <span className='flex item-center max-w-[100px] min-w-[10px] m-3 w-[70%] h-[1px]'>
@@ -387,7 +387,7 @@ function PageSingleCar() {
                         }
                     </section>
 
-                    <section id="blog" className='pt-[64px] mb-16'>
+                    <section id="blog" className='md:pt-[64px] mb-16'>
                         <div className="section-title flex items-center text-md text-[#da291c] mx-2 py-8">
                             <span>4</span>
                             <span className='flex item-center max-w-[100px] min-w-[10px] m-3 w-[70%] h-[1px]'>
@@ -398,7 +398,7 @@ function PageSingleCar() {
                         <RelatedBlog />
                     </section>
 
-                    <section id="models" className='pt-[64px] mb-24'>
+                    <section id="models" className='md:pt-[64px] mb-24'>
                         <div className="section-title flex items-center text-md text-[#da291c] mx-2 py-8">
                             <span>5</span>
                             <span className='flex item-center max-w-[100px] min-w-[10px] m-3 w-[70%] h-[1px]'>
