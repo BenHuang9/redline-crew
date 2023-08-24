@@ -76,6 +76,7 @@ function PageSingleCar() {
         return <Loader />
     }
 
+    console.log(restData)
     return (
         <>
             <div className="">
