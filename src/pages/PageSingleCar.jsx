@@ -62,13 +62,13 @@ function PageSingleCar() {
     function showSpec() {
         setShowHideSpec(!showHideSpec)
 
-        if (!showHideSpec) {
-            console.log("yes")
+        // if (!showHideSpec) {
+        //     console.log("yes")
             // document.getElementById('subSpec').scrollIntoView()
-        } else {
-            console.log("no")
+        // } else {
+            // console.log("no")
             // document.getElementById('spec').scrollIntoView()
-        }
+        // }
     }
 
 
@@ -76,7 +76,6 @@ function PageSingleCar() {
         return <Loader />
     }
 
-    console.log(restData)
     return (
         <>
             <div className="">
