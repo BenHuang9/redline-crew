@@ -141,6 +141,11 @@ h3 {
   align-items: center;
 }
 
+.image-container .left-column,
+.image-container .right-column{
+  flex: 1;
+}
+
 .image-container .imageTwo {
   position: relative;
   width: 75%;
