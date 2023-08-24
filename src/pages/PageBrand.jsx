@@ -87,7 +87,7 @@ function Brand() {
                                 <SwiperSlide key={car.id} id={`post-${car.id}`} >
                                     <NavLink to={`/brand/${brandName[0].slug}/${car.slug}`} className="relative">
                                         {car._embedded['wp:featuredmedia'][0] && (
-                                            <figure className="featured-image">
+                                            <figure className="featured-image select-none">
                                                 <img
                                                     src={car._embedded['wp:featuredmedia'][0].source_url}
                                                     alt={car._embedded['wp:featuredmedia'][0].alt_text}
@@ -95,7 +95,7 @@ function Brand() {
                                                 />
                                             </figure>
                                         )}
-                                        <h2 className='absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3vw]'>{car.acf.model_name}</h2>
+                                        <h2 className='absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[3vw] select-none'>{car.acf.model_name}</h2>
                                     </NavLink>
                                 </SwiperSlide>
 
@@ -112,7 +112,7 @@ function Brand() {
                                 <article key={car.id} id={`post-${car.id}`} >
                                     <NavLink to={`/brand/${brandName[0]?.slug}/${car.slug}`} className="relative">
                                         {car._embedded['wp:featuredmedia'][0] && (
-                                            <figure className="featured-image">
+                                            <figure className="featured-image select-none">
                                                 <img
                                                     src={car._embedded['wp:featuredmedia'][0].source_url}
                                                     alt={car._embedded['wp:featuredmedia'][0].alt_text}
@@ -120,7 +120,7 @@ function Brand() {
                                                 />
                                             </figure>
                                         )}
-                                        <h2 className='absolute bottom-0 left-1 text-[6vw]'>{car.acf.model_name}</h2>
+                                        <h2 className='absolute bottom-0 left-1 text-[6vw] select-none'>{car.acf.model_name}</h2>
                                     </NavLink>
                                 </article>
                             ))}

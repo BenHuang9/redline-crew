@@ -79,11 +79,11 @@ function PageSingleCar() {
     return (
         <>
             <div className="">
-                <div className="carBanner relative mt-20">
+                <div className="carBanner relative mt-20 md:m-0">
                     <h2 className='text-[13vw] leading-[70%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-36 lg:pb-96 text-center w-full -z-10 uppercase'>{restData.title.rendered}</h2>
                     <div className=" flex items-center justify-center h-[40vh] lg:h-[100vh] w-[80vw] lg:w-[50vw] m-auto">
                         {restData.acf.banner && (
-                            <img src={restData.acf.banner} alt="carBanner" className='max-w-[1200px] w-full' />
+                            <img src={restData.acf.banner} alt="carBanner" className='max-w-[1200px] w-full select-none' />
                         )}
                     </div>
                     <div className="scroll-invitation hidden min-[800px]:block absolute bottom-10 left-[50%] -translate-x-[50%] fill-white mx-auto mb-[25px]">
