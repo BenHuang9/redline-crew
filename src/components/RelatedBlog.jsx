@@ -26,7 +26,7 @@ function RelatedBlog() {
 
                     setRestData(data);
                 } else {
-                    const restPath = await fetch(`https://bhuang.ca/redlineCrew-wordpress/redlineCrew/wp-json/wp/v2/posts?_embed`)
+                    const restPath = await fetch(`https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/posts?_embed`)
                     const data = await restPath.json();
 
                     setRestData(data);

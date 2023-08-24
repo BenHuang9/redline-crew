@@ -43,8 +43,8 @@ function PageBlog() {
 
     return (
         <>
-            <div className="max-w-[1440px] m-auto px-10 mt-24">
-                <h2 className="text-5xl pt-5 pb-10">BLOGS STATION</h2>
+            <div className="max-w-[1440px] m-auto px-5 mt-24">
+                <h2 className="text-3xl md:text-5xl pt-5 pb-10">BLOGS STATION</h2>
 
                 {currentBlogs.map((blog) => (
                     <article key={blog.id} className="lg:flex flex-row-reverse gap-10 mb-10">
@@ -61,11 +61,11 @@ function PageBlog() {
                         </NavLink>
                         <div className="flex-1 flex flex-col justify-between">
                             <div>
-                                <h2 className="text-4xl mb-10">{blog.title.rendered}</h2>
+                                <h2 className="text-2xl md:text-4xl my-5 md:mt-0 md:mb-10">{blog.title.rendered}</h2>
                                 <div className="entry-content" dangerouslySetInnerHTML={{ __html: blog.excerpt.rendered }} />
                             </div>
 
-                            <button className="text-right text-2xl">
+                            <button className="text-right text-xl md:text-2xl my-3">
                                 <NavLink to={`/blog/${blog.slug}`}>
                                     Read More
                                 </NavLink>

@@ -26,8 +26,8 @@ function Header() {
   }
   return (
     <header className='absolute top-0 w-full left-0 z-40 flex justify-between items-center'>
-      <img src={restData.guid.rendered} alt="logo" className='w-[100px]'/>
-      <ul className='flex gap-3 text-2xl pr-10'>
+      <img src={restData.guid.rendered} alt="logo" className='w-[60px] md:w-[100px]'/>
+      <ul className='flex gap-3 text-2xl pr-5 md:pr-10'>
         <li>
           <NavLink to="/">
             Home

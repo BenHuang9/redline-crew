@@ -104,9 +104,9 @@ function PageHome() {
           <p>Scroll Down</p>
         </div>
       </section>
-      <div className="max-w-[1440px] px-10 m-auto relative">
 
-        <section className="py-16">
+      <div className="max-w-[1440px] px-5 m-auto relative">
+        <section className="py-5 md:py-16">
           <h2 className='text-3xl mb-5'>Brand</h2>
           <div className='flex flex-col md:flex-row flex-wrap justify-around'>
           <NavLink to="/brand/porsche" className='text-xl mb-5'>Porsche</NavLink>
@@ -116,7 +116,7 @@ function PageHome() {
           </div>
         </section>
         {restData.acf &&
-          <section className=" py-16">
+          <section className="py-5 md:py-16">
             <h2 className='text-3xl mb-5'>About Us</h2>
             <div className='flex flex-col lg:flex-row gap-5'>
               <p className='flex-1'>{restData.acf.about}</p>
@@ -126,7 +126,7 @@ function PageHome() {
             </div>
           </section>
         }
-        <section className=" py-16">
+        <section className="py-5 md:py-16">
           <h2 className='text-3xl mb-5'>Latest News</h2>
           <RelatedBlog />
         </section>

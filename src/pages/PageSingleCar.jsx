@@ -125,7 +125,7 @@ function PageSingleCar() {
                         </ul>
                     </div>
                 </div>
-                <div className='max-w-[1440px] m-auto px-10'>
+                <div className='max-w-[1440px] m-auto px-5'>
 
                     {/* Car Design Begin */}
                     <section id="design" className="pt-[64px] " >

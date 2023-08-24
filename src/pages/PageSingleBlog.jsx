@@ -43,9 +43,9 @@ console.log(restData)
     const blogContent = restData.acf.content.replace(/\r\n/g, '<br />');
     return (
         <>
-            <div className="max-w-[1440px] m-auto lg:flex relative px-10 mt-24">
+            <div className="max-w-[1440px] m-auto lg:flex relative px-5 mt-24">
                 <div className='blog-content basis-3/5'>
-                    <h2 className="text-5xl pt-5 pb-10">{restData.title.rendered}</h2>
+                    <h2 className="text-3xl md:text-5xl pt-5 pb-10">{restData.title.rendered}</h2>
                     {restData._embedded['wp:featuredmedia'][0] && (
                         <figure className="featured-image">
                             <img
@@ -82,7 +82,7 @@ console.log(restData)
                         )}
                     </nav>
                 </div>
-                <aside className="sideBar lg:ml-10">
+                <aside className="sideBar lg:ml-10 mb-10 md:h-[50vh] md:sticky top-0">
                     <SideBar />
                 </aside>
             </div>
