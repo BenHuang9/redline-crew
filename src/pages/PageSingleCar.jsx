@@ -80,7 +80,7 @@ function PageSingleCar() {
         <>
             <div className="">
                 <div className="carBanner relative mt-20">
-                    <h2 className='text-[14vw] leading-[70%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-36 lg:pb-96 text-center w-full -z-10 uppercase'>{restData.title.rendered}</h2>
+                    <h2 className='text-[13vw] leading-[70%] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pb-36 lg:pb-96 text-center w-full -z-10 uppercase'>{restData.title.rendered}</h2>
                     <div className=" flex items-center justify-center h-[40vh] lg:h-[100vh] w-[80vw] lg:w-[50vw] m-auto">
                         {restData.acf.banner && (
                             <img src={restData.acf.banner} alt="carBanner" className='max-w-[1200px] w-full' />
