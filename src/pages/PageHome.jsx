@@ -6,7 +6,10 @@ function PageHome() {
   const restPath = "https://bhuang.ca/redlineCrew-wordpress/wp-json/wp/v2/pages/11?acf_format=standard&_embed";
   const [restData, setRestData] = useState([]);
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   let HomeBanner;
   const videoId1 = '5GrxYha5Vwo';
 
@@ -109,10 +112,10 @@ function PageHome() {
         <section className="py-5 md:py-16">
           <h2 className='text-3xl mb-5'>Brand</h2>
           <div className='flex flex-col md:flex-row flex-wrap justify-around'>
-          <NavLink to="/brand/porsche" className='text-xl mb-5'>Porsche</NavLink>
-          <NavLink to="/brand/lamborghini" className='text-xl mb-5'>Lamborghini</NavLink>
-          <NavLink to="/brand/ferrari" className='text-xl mb-5'>Ferrari</NavLink>
-          <NavLink to="/brand/mclaren" className='text-xl mb-5' >Mclaren</NavLink>
+            <NavLink to="/brand/porsche" className='text-xl mb-5'>Porsche</NavLink>
+            <NavLink to="/brand/lamborghini" className='text-xl mb-5'>Lamborghini</NavLink>
+            <NavLink to="/brand/ferrari" className='text-xl mb-5'>Ferrari</NavLink>
+            <NavLink to="/brand/mclaren" className='text-xl mb-5' >Mclaren</NavLink>
           </div>
         </section>
         {restData.acf &&

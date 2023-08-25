@@ -18,6 +18,10 @@ function PageSingleCar() {
     const [showHideSpec, setShowHideSpec] = useState(false)
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
+    useEffect(() => {
         async function fetchData() {
             try {
                 const carResponse = await fetch(restPath);

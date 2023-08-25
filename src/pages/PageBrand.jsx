@@ -43,10 +43,8 @@ function Brand() {
 
         // Add event listener for window resize
         window.addEventListener('resize', handleResize);
-
         // Call handleResize initially
         handleResize();
-
         // Clean up the event listener on component unmount
         return () => {
             window.removeEventListener('resize', handleResize);
