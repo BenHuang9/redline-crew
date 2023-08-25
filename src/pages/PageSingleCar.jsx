@@ -138,7 +138,7 @@ function PageSingleCar() {
                             <span>Design</span>
                         </div>
                         <div className="content-wrapper">
-                            <div className="introWrapper m-auto md:flex gap-8 md:py-16">
+                            <div className="introWrapper m-auto md:flex gap-8">
                                 <p className="intro-left reveal flex-1 my-3">
                                     {restData.acf.design.intro_left}
                                 </p>
