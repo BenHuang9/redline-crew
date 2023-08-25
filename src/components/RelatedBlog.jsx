@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, NavLink } from 'react-router-dom'
 import Loader from './Loader';
-import { Navigation, Pagination } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 function RelatedBlog() {
@@ -50,10 +50,14 @@ function RelatedBlog() {
             {restData && (
                 <Swiper
                     // install Swiper modules
-                    modules={[Navigation]}
+                    modules={[Navigation, Autoplay]}
                     slidesPerView={1}
                     spaceBetween={30}
                     navigation
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     breakpoints={{
                         320: {
                             slidesPerView: 1,
