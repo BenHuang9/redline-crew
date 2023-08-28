@@ -44,16 +44,6 @@ function PageSingleCar() {
     }, [restPath]);
 
     useEffect(() => {
-        new simpleParallax(document.querySelector('.parallax-down'), {
-            delay: .6,
-            transition: 'cubic-bezier(0,0,0.5,1)',
-            orientation: 'down',
-            overflow: true,
-            maxTransition: 70
-        });
-    })
-
-    useEffect(() => {
         new simpleParallax(document.querySelector('.parallax-up'), {
             delay: .6,
             transition: 'cubic-bezier(0,0,0.5,1)',
@@ -62,6 +52,16 @@ function PageSingleCar() {
 
         });
     });
+
+    useEffect(() => {
+        new simpleParallax(document.querySelector('.parallax-down'), {
+            delay: .6,
+            transition: 'cubic-bezier(0,0,0.5,1)',
+            orientation: 'down',
+            overflow: true,
+            maxTransition: 70
+        });
+    })
 
     function showSpec() {
         setShowHideSpec(!showHideSpec)
@@ -171,6 +171,15 @@ function PageSingleCar() {
                                     </p>
                                 </div>
                                 <div className="image-container my-10">
+                                    <div className="right-column parallax-up">
+                                        {restData.acf.design && (
+                                            <>
+                                                <div className="imageThree">
+                                                    <img src={restData.acf.design.intro_img_three} alt="intro design car" />
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
                                     <div className="left-column parallax-down">
                                         {restData.acf.design && (
                                             <>
@@ -179,15 +188,6 @@ function PageSingleCar() {
                                                 </div>
                                                 <div className="imageTwo">
                                                     <img src={restData.acf.design.intro_img_two} alt="intro design car" />
-                                                </div>
-                                            </>
-                                        )}
-                                    </div>
-                                    <div className="right-column parallax-up">
-                                        {restData.acf.design && (
-                                            <>
-                                                <div className="imageThree">
-                                                    <img src={restData.acf.design.intro_img_three} alt="intro design car" />
                                                 </div>
                                             </>
                                         )}
